@@ -13,3 +13,4 @@ let saudacao_c = function(nome="Desconhecido"){
 let saudacao_d = function(nome="Desconhecido"){
     return `Olá ${nome}, seja bem-vindo!`;
 }
+
