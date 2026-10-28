@@ -10,18 +10,18 @@ const msg= document.getElementById("msg");
 function saudacao(){
     let m = "";
     if (nome.value == undefined || nome.value.trim() == ""){
-        m = `Olá, hoje é ${hoje.getDate()} / ${hoje.getMonth()+1} / ${hoje.getFullYear()}!`
+        m = `Olá, hoje é ${hoje.getDate()}/${hoje.getMonth()+1}/${hoje.getFullYear()}!`
     }else{
-        m = `Olá ${nome.value}, hoje é ${hoje.getDate()} / ${hoje.getMonth()+1} / ${hoje.getFullYear()}!`
+        m = `Olá ${nome.value}, hoje é ${hoje.getDate()}/${hoje.getMonth()+1}/ ${hoje.getFullYear()}!`
         let dt_nasc = new Date(nasc.value);
         let dt_niv = new Date(hoje.getFullYear(), dt_nasc.getMonth(), dt_nasc.getDate())
         let dif = 0;
         if (hoje > dt_niv){
             dif = hoje - dt_nasc;
-            m = m + `<br/>Passou ${dif/(1000*60*60*24)} dias`
+            m = m + `<br/>Passou ${Math.ceil(dif/(1000*60*60*24))} dias`
         }else{
             dif = dt_niv - hoje;
-            m = m + `<br/>Falta ${dif/(1000*60*60*24)} dias`
+            m = m + `<br/>Falta ${Math.ceil(dif/(1000*60*60*24))} dias`
         }
     }
     msg.innerHTML = m;
